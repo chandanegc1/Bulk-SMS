@@ -22,7 +22,6 @@ app.use(express.static(path.join(__dirname, "client", "build")));
 
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/mail", mailDataRouter);
-app.get("/",(req,res)=>res.send("true"));
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
