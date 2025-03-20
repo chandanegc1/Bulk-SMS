@@ -6,7 +6,13 @@
 .rag-green {
   background-color: #33cc3344;
 }
-
+.delet-btn{
+  font-size: 40px;
+  cursor: pointer;
+}
+.delet-btn:hover{
+  color: red;
+}
 #table-row-data {
   display: flex;
   a {

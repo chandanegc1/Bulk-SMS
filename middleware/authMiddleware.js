@@ -6,10 +6,9 @@ export const authMiddleware = (req, res, next) => {
     throw error("unauthorized access");
   }
 
-  const user = verifyToken(token);
   const tokenData = verifyToken(token);
-  const { name, email, _id } = tokenData;
+  const { name, email, _id } = tokenData.userId;
   req.user = { name, email, _id };
-  console.log(user);
+  console.log(req.user)
   next();
 };

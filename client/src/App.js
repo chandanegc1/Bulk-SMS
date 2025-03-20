@@ -5,8 +5,11 @@ import "./global.css";
 import RegistrationPage from "./pages/RegistrationPage";
 import TamplatePage from "./pages/TemplatePage";
 import CSVReaderPage from "./pages/CSVReaderPage";
+import ChooseTemplate from "./pages/ChooseProject";
 import AuthComponent from "./components/AuthComponent";
 import LogOut from "./components/LogOut"; 
+import CreateTemplatePage from "./pages/CreateTemplatePage";
+import AllTemplatesPage from "./pages/AllTemplatesPage";
 
 const App = () => {
   const [local, setLocal] = useState(false)
@@ -26,6 +29,18 @@ const App = () => {
         <Route
           path="/register"
           element={<RegistrationPage />}
+        />
+        <Route
+          path="/choose-template"
+          element={<ChooseTemplate />}
+        />
+        <Route
+          path="/create-template"
+          element={<CreateTemplatePage />}
+        />
+        <Route
+          path="/all-template"
+          element={<AllTemplatesPage />}
         />
         <Route
           path="/template"

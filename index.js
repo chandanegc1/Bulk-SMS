@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import authRouter from "./routes/authRoute.js";
 import mailDataRouter from "./routes/mailDataModel.js";
+import saveTemplateRouter from "./routes/saveTemplateRoute.js";
 import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -19,14 +20,12 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static files from React build directory
 app.use(express.static(path.join(__dirname, "client", "build")));
 
-// API routes
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/mail", mailDataRouter);
+app.use("/api/v1/template", saveTemplateRouter);
 
-// Handle all other routes and serve index.html
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
