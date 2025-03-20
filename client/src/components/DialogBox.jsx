@@ -16,7 +16,7 @@ const ConfirmationDialog = ({
   return (
     <div style={overlayStyle}>
       <div style={dialogStyle}>
-        <h2>{confirmationData.title || "Confirm Action"}</h2>
+        <h6>{confirmationData.title || "Confirm Action"}</h6>
         <p>{confirmationData.message || "Are you sure you want to proceed?"}</p>
         <div style={buttonContainerStyle}>
           {isLoader ? (

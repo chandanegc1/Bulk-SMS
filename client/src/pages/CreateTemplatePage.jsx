@@ -71,8 +71,8 @@ const CreateTemplatePage = () => {
   const [isLoader, setIsLoader] = useState(false);
 
   const confirmationData = {
-    title: "Send Email",
-    message: "Are you sure you want to send the email?",
+    title: "Create Template",
+    message: "Are you sure?",
   };
 
   const handleSendEmail = async () => {
@@ -135,9 +135,6 @@ const CreateTemplatePage = () => {
         value={subject}
         onChange={handleSubjectChange}
       />
-
-      {/* ✅ Subject Preview Section Added */}
-     
 
       <label>Email Content:</label>
       <br />
