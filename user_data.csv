@@ -1,11 +1,4 @@
 name,email,company,position,startDate,var1,var2,var3,var4,var5,var6,var7,var8,var9,var10
-Aarav Sharma,chandanegc@gmail.com,Tech Innovators Pvt Ltd,Software Engineer,2025-04-01,Project Alpha,JavaScript,MERN Stack,Agile Methodology,GitHub,REST APIs,MongoDB,React.js,Node.js,Problem Solving
-Tribhuwan Kanaujiya,tribhuwankanaujiya112@gmail.com,Future Tech Solutions,Full Stack Developer,2025-04-15,Project Beta,TypeScript,Redux Toolkit,SCRUM Framework,JIRA,Microservices,Postman,HTML5 & CSS3,Express.js,Team Collaboration
-Rohan Verma,chandanegc@gmail.com,NextGen Technologies,DevOps Engineer,2025-03-20,Kubernetes,Docker,CI/CD Pipelines,AWS Cloud,Terraform,Linux Administration,Shell Scripting,Monitoring Tools,Jenkins,Infrastructure Automation
-Sneha Kapoor,tribhuwankanaujiya112@gmail.com,AI Solutions Inc.,Data Scientist,2025-06-10,Machine Learning,Data Analysis,Python,Pandas & NumPy,Scikit-learn,TensorFlow,Data Visualization,SQL,Big Data Tools,Statistics
-Priya Singh,chandanegc@gmail.com,Cloud Masters Ltd,Cloud Architect,2025-05-05,AWS,Azure,Google Cloud,Cloud Security,Cloud Networking,Serverless Computing,Data Storage,Infrastructure Design,DevSecOps,High Availability
-Aditya Kumar,tribhuwankanaujiya112@gmail.com,Secure IT Hub,Cybersecurity Analyst,2025-07-01,Threat Analysis,Penetration Testing,Network Security,Incident Response,SOC Operations,SIEM Tools,Vulnerability Assessment,Security Protocols,Risk Management,Ethical Hacking
-Kavya Mehta,chandanegc@gmail.com,E-commerce Gurus,UI/UX Designer,2025-08-15,Wireframing,Prototyping,User Research,Figma,Adobe XD,UI Design,UX Principles,Responsive Design,Design Systems,User Testing
-Rajesh Patel,tribhuwankanaujiya112@gmail.com,AI Research Labs,ML Engineer,2025-09-05,Deep Learning,Natural Language Processing,Computer Vision,PyTorch,Model Optimization,AI Deployment,MLOps,TensorFlow,Data Pipelines,AI Ethics
-Ishita Malhotra,chandanegc@gmail.com,Mobile App Solutions,Mobile Developer,2025-10-12,React Native,Flutter,Android Development,iOS Development,API Integration,UI/UX Design,Version Control,Cross-platform Development,Testing & Debugging,Performance Optimization
-Ananya Gupta,tribhuwankanaujiya112@gmail.com,EduTech Innovations,Backend Developer,2025-11-20,Node.js,Express.js,MongoDB,SQL,API Development,Authentication & Authorization,RESTful Services,Server-side Logic,Cloud Deployment,Performance Tuning
+Aarav Sharma,chandanegc@gmail.com,Tech Innovators Pvt Ltd,Software Engineer,01-04-2025,Project Alpha,JavaScript,MERN Stack,Agile Methodology,GitHub,REST APIs,MongoDB,React.js,Node.js,Problem Solving
+,,,,,,,,,,,,,,
+Rohan Verma,chandanegc@gmail.com,NextGen Technologies,DevOps Engineer,20-03-2025,Kubernetes,Docker,CI/CD Pipelines,AWS Cloud,Terraform,Linux Administration,Shell Scripting,Monitoring Tools,Jenkins,Infrastructure Automation

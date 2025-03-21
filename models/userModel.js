@@ -13,7 +13,11 @@ const UserSchema =new mongoose.Schema({
     password:{
         type:String,
         required:true,
-    }
+    },
+    email_secret:{
+        type:String,
+        required:true,
+    },
 });
 const UserModel =  mongoose.model("User", UserSchema);
 

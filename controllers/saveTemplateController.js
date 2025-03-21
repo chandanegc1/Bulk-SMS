@@ -15,7 +15,7 @@ export const createTemplate = async (req, res) => {
       createdBy: req.user._id,
     });
     res.status(201).json({
-      msg: "Teplate created successfully",
+      msg: "Template created successfully",
       data: newTemplate,
     });
   } catch (error) {

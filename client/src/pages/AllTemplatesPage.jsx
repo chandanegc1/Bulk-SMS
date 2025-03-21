@@ -5,7 +5,7 @@ import { MdDelete } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 
 const AllTemplatesPage = () => {
-  const [data, setData] = useState([]);
+  const [dataValue, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [selectedTemplate, setSelectedTemplate] = useState(null);
@@ -53,7 +53,7 @@ const AllTemplatesPage = () => {
   };
   const navigate = useNavigate();
   const handleChooseTemplate = (...template) => {
-    navigate("", { state: { template } });
+    navigate("/file-upload", { state: { template } });
   };
   return (
     <div>
@@ -93,8 +93,8 @@ const AllTemplatesPage = () => {
       >
         {loading ? (
           <p>Loading...</p>
-        ) : data.length > 0 ? (
-          data.map((item, index) => (
+        ) : dataValue.length > 0 ? (
+          dataValue.map((item, index) => (
             <div
               key={index}
               className="form"

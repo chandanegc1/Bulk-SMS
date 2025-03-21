@@ -7,6 +7,7 @@ const LoginPage = () => {
     email: "",
     password: "",
   });
+  const [loader, setLoader] = useState(false);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setData((prev) => ({ ...prev, [name]: value }));
@@ -14,14 +15,17 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoader(true);
     try {
       const res = await axios.post("/api/v1/auth/login", data);
-      navigate("/file-upload");
+      navigate("/choose-template");
       localStorage.setItem("credential", JSON.stringify(res.data.data));
       window.location.reload();
     } catch (error) {
+      alert("Invalid Credentials");
       console.log(error);
     }
+    setLoader(false);
   };
   return (
     <div>
@@ -48,7 +52,7 @@ const LoginPage = () => {
           className="btn btn-block form-btn"
           type="submit"
         >
-          Login
+         {loader?"Login...":"Login"}  
         </button>
       </div>
     </div>

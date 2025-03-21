@@ -5,31 +5,16 @@ import axios from "axios";
 import ConfirmationDialog from "../components/DialogBox";
 
 const EmailTemplate = () => {
+  const location = useLocation();
+  const { data,template } = location.state || {};
   const [subject, setSubject] = useState(
-    "Welcome {name}, Join {company} as a {position} starting on {startDate}"
+   `${template[1]}`
   );
   const [emailContent, setEmailContent] = useState(
-    `Hello <b>{name}</b>,<br/><br/>
-    Welcome to <b>{company}</b> as a <b>{position}</b>. Your email is <b>{email}</b>, and your joining date is <b>{startDate}</b>.<br/><br/>
-    We look forward to working with you!<br/><br/>
-    <b>Here are the additional details:</b><br/>
-    Var1: <b>{var1}</b><br/>
-    Var2: <b>{var2}</b><br/>
-    Var3: <b>{var3}</b><br/>
-    Var4: <b>{var4}</b><br/>
-    Var5: <b>{var5}</b><br/>
-    Var6: <b>{var6}</b><br/>
-    Var7: <b>{var7}</b><br/>
-    Var8: <b>{var8}</b><br/>
-    Var9: <b>{var9}</b><br/>
-    Var10: <b>{var10}</b><br/><br/>
-    Thanks!`
+    `${template[0]}`
   );
 
   const [finalMessageArray, setFinalMessageArray] = useState([]);
-  const location = useLocation();
-  const { data } = location.state || {};
-
   useEffect(() => {
     if (data && data.length > 0) {
       const messages = data.map((user) => {
@@ -99,7 +84,7 @@ const EmailTemplate = () => {
 
   return (
     <form className="form" style={{ maxWidth: "90vw" }} onSubmit={handleSubmit}>
-      <h2>Customize Email Template</h2>
+      <h2>Email Template</h2>
       <br />
       <ConfirmationDialog
         open={isDialogOpen}

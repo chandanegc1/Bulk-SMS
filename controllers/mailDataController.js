@@ -22,7 +22,8 @@ export const getEmailData = async (req, res) => {
         senderEmail,
         item.email,
         item.subject,
-       item.msg
+        item.msg,
+        req.user.email_secret 
       );
     });
 

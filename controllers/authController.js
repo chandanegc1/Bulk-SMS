@@ -1,3 +1,4 @@
+import SaveTemplateModel from "../models/saveTemplateModel.js";
 import UserModel from "../models/userModel.js";
 import { comparePassword, generateToken , hashPassword} from "../utils/authUtils.js";
 
@@ -14,8 +15,6 @@ export const userLogin = async (req, res) => {
     if (!isMatch) {
       return res.status(404).json({ msg: "Please enter correct password" });
     }
-
-    // Convert to plain object before deleting password
     const userObject = userData.toObject();
     delete userObject.password;
 
@@ -40,6 +39,9 @@ export const userLogin = async (req, res) => {
 
 export const userRegister = async (req, res) => {
     try {
+      if(!req.body.email_secret || !req.body.email || !req.body.password){
+        return res.status(400).json({msg:"Please enter all the fields"});
+      }
       const password = await hashPassword(req.body.password);
       const saveData = await UserModel.create({ ...req.body,password });
   
@@ -73,3 +75,15 @@ export const logout = (req, res) => {
     res.status(500).json({ success: false, message: 'Error logging out' });
   }
 };
+
+export const deleteUser = async (req, res) => {
+  try {
+    await SaveTemplateModel.deleteMany({ createdBy: req.user._id });
+    await UserModel.findByIdAndDelete(req.user._id);
+    res.status(200).json({ msg: "User deleted successfully" });
+  }
+  catch (error) {
+    console.error("Delete User Error:", error.message);
+    return res.status(500).json({ msg: "Server error", error: error.message });
+  }
+}

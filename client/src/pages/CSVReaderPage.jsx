@@ -1,12 +1,13 @@
 import Input from "../components/Input";
 import React, { useState } from "react";
 import Papa from "papaparse";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const CSVReaderPage = () => {
-  const [data, setData] = useState([]);
+  const [csvData, setData] = useState([]);
   const [error, setError] = useState("");
-
+  const location = useLocation();
+  const { template } = location.state || {};
   const handleFileChange = (event) => {
     const file = event.target.files[0];
 
@@ -35,9 +36,9 @@ const CSVReaderPage = () => {
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(data.length >= 1);
-    if (data.length >= 1) {
-      navigate("/template", { state: { data } });
+    console.log(csvData.length >= 1);
+    if (csvData.length >= 1) {
+      navigate("/template", { state: { data: csvData, template } });
     }
   };
   return (
@@ -54,17 +55,17 @@ const CSVReaderPage = () => {
       <br />
       <h3 style={{ textAlign: "center" }}>Parsed Data:</h3>
       <br />
-      {data.length > 0 ? (
+      {csvData.length > 0 ? (
         <table border="1" cellPadding="10">
           <thead>
             <tr>
-              {Object.keys(data[0]).map((key, index) => (
+              {Object.keys(csvData[0]).map((key, index) => (
                 <th key={index}>{key}</th>
               ))}
             </tr>
           </thead>
           <tbody>
-            {data.map((row, rowIndex) => (
+            {csvData.map((row, rowIndex) => (
               <tr key={rowIndex}>
                 {Object.values(row).map((value, colIndex) => (
                   <td key={colIndex}>{value}</td>

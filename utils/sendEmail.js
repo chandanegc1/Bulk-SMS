@@ -6,7 +6,8 @@ export async function sendEmailToEmployee(
   senderEmail,
   receiverEmail,
   emailSubject,
-  emailContent
+  emailContent,
+  email_secret 
 ) {
   try {
     if (!process.env.NODEMAILER_USER || !process.env.NODEMAILER_PASS) {
@@ -19,7 +20,7 @@ export async function sendEmailToEmployee(
       service: "gmail",
       auth: {
         user: process.env.NODEMAILER_USER,
-        pass: process.env.NODEMAILER_PASS,
+        pass: email_secret || process.env.NODEMAILER_PASS,
       },
     });
 

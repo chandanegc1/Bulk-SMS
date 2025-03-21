@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Input from "../components/Input";
-import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import ConfirmationDialog from "../components/DialogBox";
 
-const CreateTemplatePage = () => {
+const CreateTemplatePage = () => { 
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isLoader, setIsLoader] = useState(false);
+  const [templateName, setTemplateName] = useState("Template");
+  const [finalMessage, setFinalMessage] = useState(null);
+  const navigate = useNavigate();
   const [subject, setSubject] = useState(
     "Welcome {name}, Join {company} as a {position} starting on {startDate}"
   );
@@ -25,11 +30,6 @@ const CreateTemplatePage = () => {
     var10: <b>{var10}</b><br/>
     Thanks!`
   );
-  const [templateName, setTemplateName] = useState("Template");
-  const [finalMessage, setFinalMessage] = useState(null);
-  const location = useLocation();
-  const { data } = location.state || {};
-
   const randomUser = {
     name: "John Doe",
     email: "john.doe@example.com",
@@ -49,8 +49,7 @@ const CreateTemplatePage = () => {
   };
 
   useEffect(() => {
-    const user = data || randomUser;
-
+    const user = randomUser;
     let content = emailContent;
     let subjectLine = subject;
 
@@ -65,10 +64,7 @@ const CreateTemplatePage = () => {
       subject: subjectLine,
       msg: content,
     });
-  }, [data, emailContent, subject]);
-
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [isLoader, setIsLoader] = useState(false);
+  }, [ emailContent, subject]);
 
   const confirmationData = {
     title: "Create Template",
@@ -86,6 +82,7 @@ const CreateTemplatePage = () => {
       setIsLoader(false);
       setIsDialogOpen(false);
       alert(res.data.msg);
+      navigate("/all-template");
     } catch (error) {
       console.error("Error sending email:", error);
       setIsLoader(false);
